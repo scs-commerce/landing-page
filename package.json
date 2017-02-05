@@ -6,7 +6,8 @@
   "license": "MIT",
   "scripts": {
     "start": "PORT=$npm_package_config_port node index.js",
-    "watch": "nodemon -e js,pug --watch index.js --watch views --exec 'npm start'"
+    "watch": "nodemon -e js,pug --watch index.js --watch views --exec 'npm start'",
+    "build:js": "node systemjs.build.js"
   },
   "config": {
     "port": 3000
@@ -17,8 +18,11 @@
     "standard": "^8.6.0"
   },
   "dependencies": {
+    "babel-core": "^6.22.1",
     "express": "^4.14.1",
     "morgan": "^1.8.0",
-    "pug": "^2.0.0-beta11"
+    "pug": "^2.0.0-beta11",
+    "systemjs": "^0.20.5",
+    "systemjs-builder": "^0.16.2"
   }
 }
