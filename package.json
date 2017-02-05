@@ -4,8 +4,19 @@
   "main": "index.js",
   "author": "Falk Hoppe <falkhoppe81@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "PORT=$npm_package_config_port node index.js"
+  },
+  "config": {
+    "port": 3000
+  },
   "devDependencies": {
     "eslint": "^3.15.0",
     "standard": "^8.6.0"
+  },
+  "dependencies": {
+    "express": "^4.14.1",
+    "morgan": "^1.8.0",
+    "pug": "^2.0.0-beta11"
   }
 }
