@@ -1,5 +1,5 @@
 const Builder = require('systemjs-builder')
-const builder = new Builder('src')
+const builder = new Builder('client')
 
 builder
   .trace('js/main.js')
