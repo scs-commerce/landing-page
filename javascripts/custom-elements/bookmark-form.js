@@ -25,7 +25,8 @@ export default class BookmarkForm extends HTMLElement {
       e.preventDefault()
 
       $.post(this.dom.form.attr('action'), this.dom.form.serialize(), (res) => {
-        this.mark()
+        $(document).trigger('shopping-basket:update', [res])
+        this.mark({ amount: this.dom.amount.val() })
       })
     })
   }
