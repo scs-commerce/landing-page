@@ -12,13 +12,31 @@ html(lang="en")
       li
         a(href="https://www.facebook.de") Facebook
 
-    <!--# include virtual="/products/" -->
+    h1 welcome
+    p Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
+    h2 sum sub content
     p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-    script(src="systemjs/dist/system-production.js")
+    h2  Products
+    <!--# include virtual="/products/" -->
+
+    //- script(src="zeptojs/zepto.js")
+    script(src="systemjs/dist/system.js")
     script.
-      System.import('js/main.js')
-        .then((main) => {
-          main.default()
-        })
+      //- var dependencies = []
+      System.config({
+        map: {
+          'zepto': 'zepto/dist/zepto.js',
+          'document-register-element': 'document-register-element/build/document-register-element.js',
+        },
+        bundles: { 'javascripts/custom-elements.js':
+           [ 'javascripts/custom-elements/product-list/endless-list-fetcher.js',
+             'javascripts/custom-elements/product-list/index.js',
+             'javascripts/custom-elements/product.js' ] }
+      })
+
+      //- TODO: LOAD fetch conditionally
+      const dependencies = [SystemJS.import('document-register-element')]
+      Promise.all(dependencies)
+        .then(() => SystemJS.import('./javascripts/main.js'))
