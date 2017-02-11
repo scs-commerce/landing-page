@@ -10,12 +10,11 @@ export default class ShoppingBasket extends HTMLElement {
 
   connectedCallback () {
     this.dom.self = $(this)
-    this.dom.basketItems = $('.basket-items', this.dom.self)
     $(document).on('shopping-basket:update', (e, basket) => this.update(basket))
   }
 
   update (basket) {
-    this.dom.basketItems.replaceWith(basket)
+    this.dom.self.html(basket)
   }
 }
 

@@ -11,6 +11,7 @@ app.use(express.static('dist'))
 app.use(cookieParser())
 
 app.set('view engine', 'pug')
+app.locals.pretty = true
 
 app.get('/', (req, res) => {
   const userId = req.cookies['scs-commerce-uid'] || uuid()

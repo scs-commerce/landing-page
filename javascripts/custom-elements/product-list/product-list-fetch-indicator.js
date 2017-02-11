@@ -20,7 +20,7 @@ export default class ListFetchIndicator extends HTMLElement {
   }
 
   render () {
-    return '<div style="color: red; margin-top: 1rem; border: 1px solid black; font-size: 1.5rem; padding: 1rem;">Loading ...</div>'
+    return '<div class="alert alert-info">Loading ...</div>'
   }
 }
 

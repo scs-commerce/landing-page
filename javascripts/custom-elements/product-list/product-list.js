@@ -33,13 +33,13 @@ export default class ProductList extends HTMLElement {
   fetch () {
     if (this.dom.next && this.dom.next.length > 0) {
       const href = this.dom.next[0].href
-
-      this.dom.products.append(this.dom.fetchIndicator)
+      const indicator = $(this.dom.fetchIndicator).clone()
+      this.dom.products.append(indicator)
 
       return fetch(href)
         .then(res => res.text())
         .then(body => {
-          setTimeout(() => this.dom.fetchIndicator.remove(), 500)
+          setTimeout(() => indicator.remove(), 500)
           this.addProducts(body)
         })
         .catch(e => console.log(e))
