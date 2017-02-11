@@ -33,6 +33,7 @@ html(lang="en")
         map: {
           'zepto': 'zepto/dist/zepto.js',
           'document-register-element': 'document-register-element/build/document-register-element.js',
+          'fetch': 'whatwg-fetch/fetch.js'
         },
         bundles: { 'javascripts/custom-elements.js':
            [ 'javascripts/custom-elements/product-list/endless-list-fetcher.js',
@@ -40,7 +41,9 @@ html(lang="en")
              'javascripts/custom-elements/product.js' ] }
       })
 
-      //- TODO: LOAD fetch conditionally
       const dependencies = [SystemJS.import('document-register-element')]
+
+      if (typeof fetch !== 'function') dependencies.push(SystemJS.import('fetch'))
+
       Promise.all(dependencies)
         .then(() => SystemJS.import('./javascripts/main.js'))
