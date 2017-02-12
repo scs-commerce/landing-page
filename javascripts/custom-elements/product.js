@@ -27,6 +27,11 @@ export default class Product extends HTMLElement {
     return this._id
   }
 
+  get price () {
+    this._price = this._price || this.dom.self.attr('data-price')
+    return this._price
+  }
+
   mark (item) {
     this.bookmarkForm.mark(item)
   }

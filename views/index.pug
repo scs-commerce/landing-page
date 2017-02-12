@@ -17,6 +17,7 @@ html(lang="en")
       product-list product-item { width: 28%; margin-left: 1%; margin-bottom: 1rem; float: left; height: 250px; }
       product-list-fetch-indicator:before { content: ''; display: block; clear: both; }
       .card { border-radius: 0; background-color: rgba(134, 134, 134, 0.1); color: #fff; }
+      .card-footer { background-color: #fff; }
 
       bookmark-form .card-footer:last-child {
         border-radius: 0;
@@ -43,6 +44,12 @@ html(lang="en")
         bottom: 0;
         left: 0;
         right: 0;
+      }
+
+      product-item .price {
+        position: absolute;
+        right: 1rem;
+        bottom: 3rem;
       }
 
   body
