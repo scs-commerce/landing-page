@@ -40,6 +40,7 @@ export default class BookmarkForm extends HTMLElement {
       <form action="/order/basket" method="POST">
         <input type="hidden" name="id" value="${this.product.id}">
         <input type="hidden" name="name" value="${this.product.name}">
+        <input type="hidden" name="price" value="${this.product.price}">
         <input type="number" name="amount" value="1" min="1" max="5">
         <button type="submit" class="btn btn-sm">mark</button>
       </form>

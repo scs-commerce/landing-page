@@ -28,7 +28,7 @@ export default class Product extends HTMLElement {
   }
 
   get price () {
-    this._price = this._price || this.dom.self.attr('data-price')
+    this._price = this._price || this.dom.self.find('.price').attr('data-price')
     return this._price
   }
 
