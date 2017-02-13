@@ -1,47 +1,11 @@
-<!DOCTYPE html>
-html(lang="en")
-  head
-    meta(charset="UTF-8")
-    title LandingPage
-    link(
-       rel="stylesheet"
-       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"
-       integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
-       crossorigin="anonymous")
+extends layouts/base
 
-    link(
-      rel="stylesheet"
-      href="/assets/styles/scs-commerce.main.css")
-  body
-    .container
-      include partials/nav
+block content
+  <!--# include virtual="/order/basket" -->
 
-      <!--# include virtual="/order/basket" -->
+  h2 scs commerce
+  p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-      h2 scs commerce
-      p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  h2  Products
 
-      h2  Products
-
-      <!--# include virtual="/products/" -->
-
-    script(src="/assets/systemjs/dist/system.js")
-
-    script.
-      //- var dependencies = []
-      System.config({
-        map: {
-          'zepto': '/assets/zepto/dist/zepto.js',
-          'document-register-element': '/assets/document-register-element/build/document-register-element.js',
-          'fetch': '/assets/whatwg-fetch/fetch.js',
-          'javascripts/*': '/assets/javascripts/*'
-        }
-      })
-
-      const dependencies = [SystemJS.import('document-register-element'), SystemJS.import('document-register-element')]
-
-      if (typeof fetch !== 'function') dependencies.push(SystemJS.import('fetch'))
-
-      Promise.all(dependencies)
-        .then(() => SystemJS.import('assets/javascripts/scs-commerce.main.js'))
-        .catch(e => console.log(e))
+  <!--# include virtual="/products/" -->
